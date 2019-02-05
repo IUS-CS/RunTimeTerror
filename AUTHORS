@@ -1,5 +1,0 @@
-**Will Schottler** - Project Leader
-
-**Amanda Goodridge**
-
-**Kaitlin Veith**
