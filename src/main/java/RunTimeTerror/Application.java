@@ -17,7 +17,7 @@ public class Application
             public void run() {
                 Display view = new Display();
                 JFrame frame = new JFrame();
-                frame.setSize(800, 600);
+                frame.setSize(1024, 768);
                 frame.setLocationRelativeTo(null);
                 frame.setResizable(false);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
