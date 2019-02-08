@@ -1,5 +1,7 @@
 package RunTimeTerror;
 
+import RunTimeTerror.Entities.Character;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 
@@ -14,6 +16,7 @@ public class Game extends Canvas implements Runnable
     public static final int Width = 800, Height = Width / 4 * 3;
     private Thread thread;
     private boolean running = false;
+    Character mario = new Character();
 
     public Game(){
         new Display(Width, Height, "Jumpman Plumber", this);
@@ -61,6 +64,7 @@ public class Game extends Canvas implements Runnable
         }
 
         Graphics g = bs.getDrawGraphics();
+        mario.move();
 
         g.setColor(Color.black);
         g.fillRect(0, 0, Width, Height);
