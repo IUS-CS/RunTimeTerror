@@ -37,5 +37,24 @@ public abstract class Object {
         this.id = id;
     }
 
+    public ID getId(){
+        return id;
+    }
+
+    public void setVelX(int velX){
+        this.velX = velX;
+    }
+
+    public int getVelX(){
+        return velX;
+    }
+
+    public void setVelY(int velY){
+        this.velY = velY;
+    }
+    public int getVelY(){
+        return velY;
+    }
+
 
 }
