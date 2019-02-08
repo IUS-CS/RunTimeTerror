@@ -2,13 +2,13 @@ package RunTimeTerror.Entities;
 
 import java.awt.*;
 
-public abstract class Object {
+public abstract class GameObject {
 
     protected int x, y;
     protected ID id;
     protected int velX, velY;
 
-    public Object(int x, int y, ID id){
+    public GameObject(int x, int y, ID id){
         this.x = x;
         this.y = y;
         this.id = id;
