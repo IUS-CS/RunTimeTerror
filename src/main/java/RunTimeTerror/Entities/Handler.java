@@ -1,25 +1,27 @@
-package RunTimeTerror;
+package RunTimeTerror.Entities;
 
-import RunTimeTerror.Entities.GameObject;
 
 import java.awt.*;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Handler {
 
-    LinkedList<GameObject> object = new LinkedList<GameObject>();
+    LinkedList<GameObject> object = new LinkedList<>();
 
     public void tick(){
-        for(int i = 0; i < object.size(); i++){
-           GameObject tempObject = object.get(i);
+        Iterator<GameObject> iter = object.iterator();
+        while(iter.hasNext()){
+           GameObject tempObject = iter.next();
 
            tempObject.tick();
         }//for loop
     }//tick
 
     public void render(Graphics g){
-        for(int i = 0; i < object.size(); i++){
-            GameObject tempObject = object.get(i);
+        Iterator<GameObject> iter = object.iterator();
+        while(iter.hasNext()){
+            GameObject tempObject = iter.next();
 
             tempObject.render(g);
         }
