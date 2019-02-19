@@ -131,11 +131,11 @@ This section explains the framework that Jumpman Plumber is modeled after. Our f
 
 
 **SAD Diagrams**
+
 ![UML Sequence Diagram](../images/UMLSequenceDiagram.pdf)
 
-![UML Sequence Diagram](RunTimeTerror/images/UMLSequenceDiagram.pdf)
 
-![UML Use Case Diagram](RunTimeTerror/images/UMLUseCase.pdf)
+![UML Use Case Diagram](../images/UMLUseCase.pdf)
 
 
 ## Architectural Goals
