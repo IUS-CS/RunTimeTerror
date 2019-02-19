@@ -135,8 +135,6 @@ This section explains the framework that Jumpman Plumber is modeled after. Our f
 ![UML Sequence Diagram](../images/UMLSequenceDiagram.pdf)
 
 
-![UML](UMLSequenceDiagram.pdf)
-
 ![UML Use Case Diagram](../images/UMLUseCase.pdf)
 
 
