@@ -17,7 +17,8 @@ public class Goomba extends GameObject {
         x += velX;
         y += velY;
 
-        if(y<=0 || y >= Game.HEIGHT) velY *= -1;
+        if(y<=0 || y >= Game.HEIGHT-50) velY *= -1;
+        if(x<=0 || x >= Game.WIDTH-32) velX *= -1;
     }
 
     public void render(Graphics g){

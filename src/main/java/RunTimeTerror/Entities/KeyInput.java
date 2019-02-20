@@ -8,82 +8,32 @@ import java.util.Iterator;
 public class KeyInput extends KeyAdapter {
 
     private Handler handler;
-    public boolean jumping;
-    int jumpCount = 0;
-    int maxJumpHeight = 15;
 
-    public KeyInput(Handler handler){
-        this.handler = handler;
+    public boolean[] keyDown = new boolean[256];
+    public boolean[] keyDownConsumed = new boolean[256];
+
+    public boolean isKeyDown(int keyCode) {
+        return keyDown[keyCode];
     }
 
+
+    public boolean isKeyPressed(int keyCode) {
+        if (!keyDownConsumed[keyCode] && keyDown[keyCode]) {
+            keyDownConsumed[keyCode] = true;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public void keyPressed(KeyEvent e) {
-
-        int key = e.getKeyCode();
-        System.out.println(key);
-
-
-        for(int i = 0; i<handler.object.size(); i++) {
-            GameObject tempObject = handler.object.get(i);
-            if(tempObject.getId() == ID.Player) {
-
-                if (key == KeyEvent.VK_LEFT) {
-                    tempObject.setVelX(-2);
-                }
-
-                if (key == KeyEvent.VK_RIGHT) {
-                    tempObject.setVelX(2);
-                }
-
-                if (key == KeyEvent.VK_UP) {
-                    //tempObject.setVelY(-2);
-                    jumping = true;
-                    jumpCount = 0;
-                    updateJump(i);
-                }
-
-                if (key == KeyEvent.VK_DOWN) {
-                    tempObject.setVelY(2);
-                }
-
-
-            }
-        }
+        System.out.println(e.getKeyCode());
+        keyDown[e.getKeyCode()] = true;
     }
 
-    public void updateJump(int id){
-        GameObject tempObject = handler.object.get(id);
-        for(int i = 0; i<=maxJumpHeight; i+=5) {
-            if (!jumping) {
-                return;
-            } else if (jumping && i == 0) {
-                tempObject.setVelY(-5);
-            } else if (jumping && i == maxJumpHeight) {
-                //tempObject.setVelY(1);
-                jumpCount = maxJumpHeight;
-                jumping = false;
-            }
-        }
-    }
-
+    @Override
     public void keyReleased(KeyEvent e) {
-
-        int key = e.getKeyCode();
-        for(int i = 0; i<handler.object.size(); i++) {
-            GameObject tempObject = handler.object.get(i);
-            if (key == KeyEvent.VK_LEFT) {
-                tempObject.setVelX(0);
-            }
-
-            if (key == KeyEvent.VK_RIGHT) {
-                tempObject.setVelX(0);
-            }
-            /*if (key == KeyEvent.VK_UP) {
-                tempObject.setVelY(0);
-            }*/
-
-            if (key == KeyEvent.VK_DOWN) {
-                tempObject.setVelY(0);
-            }
-        }
+        keyDown[e.getKeyCode()] = false;
+        keyDownConsumed[e.getKeyCode()] = false;
     }
 }
