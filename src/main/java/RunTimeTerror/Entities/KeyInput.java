@@ -8,6 +8,9 @@ import java.util.Iterator;
 public class KeyInput extends KeyAdapter {
 
     private Handler handler;
+    public boolean jumping;
+    int jumpCount = 0;
+    int maxJumpHeight = 15;
 
     public KeyInput(Handler handler){
         this.handler = handler;
@@ -24,21 +27,40 @@ public class KeyInput extends KeyAdapter {
             if(tempObject.getId() == ID.Player) {
 
                 if (key == KeyEvent.VK_LEFT) {
-                    tempObject.setX(tempObject.getX() - 2);
+                    tempObject.setVelX(-2);
                 }
 
                 if (key == KeyEvent.VK_RIGHT) {
-                    tempObject.setX(tempObject.getX() + 2);
+                    tempObject.setVelX(2);
                 }
 
                 if (key == KeyEvent.VK_UP) {
-                    tempObject.setY(tempObject.getY() - 2);
-                    ;
+                    //tempObject.setVelY(-2);
+                    jumping = true;
+                    jumpCount = 0;
+                    updateJump(i);
                 }
 
                 if (key == KeyEvent.VK_DOWN) {
-                    tempObject.setY(tempObject.getY() + 2);
+                    tempObject.setVelY(2);
                 }
+
+
+            }
+        }
+    }
+
+    public void updateJump(int id){
+        GameObject tempObject = handler.object.get(id);
+        for(int i = 0; i<=maxJumpHeight; i+=5) {
+            if (!jumping) {
+                return;
+            } else if (jumping && i == 0) {
+                tempObject.setVelY(-5);
+            } else if (jumping && i == maxJumpHeight) {
+                //tempObject.setVelY(1);
+                jumpCount = maxJumpHeight;
+                jumping = false;
             }
         }
     }
@@ -46,21 +68,22 @@ public class KeyInput extends KeyAdapter {
     public void keyReleased(KeyEvent e) {
 
         int key = e.getKeyCode();
-        /*
-        if (key == KeyEvent.VK_LEFT) {
-            velX = 0;
-        }
+        for(int i = 0; i<handler.object.size(); i++) {
+            GameObject tempObject = handler.object.get(i);
+            if (key == KeyEvent.VK_LEFT) {
+                tempObject.setVelX(0);
+            }
 
-        if (key == KeyEvent.VK_RIGHT) {
-            velX = 0;
-        }
+            if (key == KeyEvent.VK_RIGHT) {
+                tempObject.setVelX(0);
+            }
+            /*if (key == KeyEvent.VK_UP) {
+                tempObject.setVelY(0);
+            }*/
 
-        if (key == KeyEvent.VK_UP) {
-            velY = 0;
+            if (key == KeyEvent.VK_DOWN) {
+                tempObject.setVelY(0);
+            }
         }
-
-        if (key == KeyEvent.VK_DOWN) {
-            velY = 0;
-        }*/
     }
 }

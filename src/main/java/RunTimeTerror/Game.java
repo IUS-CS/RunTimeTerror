@@ -27,9 +27,11 @@ public class Game extends Canvas implements Runnable
         new Display(WIDTH, HEIGHT, "Jumpman Plumber", this);
 
         handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player));
+        handler.addObject(new Goomba(WIDTH/2-32, HEIGHT/2-32, ID.Goomba));
     }
 
     public void run(){
+        this.requestFocus();
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
