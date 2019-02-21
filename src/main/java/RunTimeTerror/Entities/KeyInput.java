@@ -9,58 +9,31 @@ public class KeyInput extends KeyAdapter {
 
     private Handler handler;
 
-    public KeyInput(Handler handler){
-        this.handler = handler;
+    public boolean[] keyDown = new boolean[256];
+    public boolean[] keyDownConsumed = new boolean[256];
+
+    public boolean isKeyDown(int keyCode) {
+        return keyDown[keyCode];
     }
 
+
+    public boolean isKeyPressed(int keyCode) {
+        if (!keyDownConsumed[keyCode] && keyDown[keyCode]) {
+            keyDownConsumed[keyCode] = true;
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public void keyPressed(KeyEvent e) {
-
-        int key = e.getKeyCode();
-        System.out.println(key);
-
-
-        for(int i = 0; i<handler.object.size(); i++) {
-            GameObject tempObject = handler.object.get(i);
-            if(tempObject.getId() == ID.Player) {
-
-                if (key == KeyEvent.VK_LEFT) {
-                    tempObject.setX(tempObject.getX() - 2);
-                }
-
-                if (key == KeyEvent.VK_RIGHT) {
-                    tempObject.setX(tempObject.getX() + 2);
-                }
-
-                if (key == KeyEvent.VK_UP) {
-                    tempObject.setY(tempObject.getY() - 2);
-                    ;
-                }
-
-                if (key == KeyEvent.VK_DOWN) {
-                    tempObject.setY(tempObject.getY() + 2);
-                }
-            }
-        }
+        System.out.println(e.getKeyCode());
+        keyDown[e.getKeyCode()] = true;
     }
 
+    @Override
     public void keyReleased(KeyEvent e) {
-
-        int key = e.getKeyCode();
-        /*
-        if (key == KeyEvent.VK_LEFT) {
-            velX = 0;
-        }
-
-        if (key == KeyEvent.VK_RIGHT) {
-            velX = 0;
-        }
-
-        if (key == KeyEvent.VK_UP) {
-            velY = 0;
-        }
-
-        if (key == KeyEvent.VK_DOWN) {
-            velY = 0;
-        }*/
+        keyDown[e.getKeyCode()] = false;
+        keyDownConsumed[e.getKeyCode()] = false;
     }
 }
