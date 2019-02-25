@@ -9,8 +9,8 @@ public class Goomba extends GameObject {
     public Goomba(int x, int y, ID id){
         super(x,y,id);
 
-        velX = 5;
-        velY = 5;
+        velX = -2;
+        velY = 0;
     }
 
     public void tick(){
