@@ -1,6 +1,8 @@
 package RunTimeTerror;
 
 
+import RunTimeTerror.Entities.KeyInput;
+
 import javax.swing.*;
 import java.awt.*;
 
