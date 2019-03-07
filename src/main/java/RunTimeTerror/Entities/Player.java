@@ -19,8 +19,8 @@ public class Player extends GameObject{
     public boolean pressingLeft;
 
 
-    public Player(int x, int y, ID id){
-        super(x, y, id);
+    public Player(int x, int y, int width, int height, ID id){
+        super(x,y,width,height,id);
         velY = 1;
 
 
