@@ -1,66 +1,58 @@
 package RunTimeTerror.Entities;
 
 
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.Iterator;
+import java.awt.event.KeyListener;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class KeyInput extends KeyAdapter {
+public class KeyInput implements KeyListener {
 
-    private Handler handler;
 
-    public KeyInput(Handler handler){
-        this.handler = handler;
+    public static boolean[] keyDown = new boolean[256];
+    public static boolean[] keyDownConsumed = new boolean[256];
+    /*Queue<boolean[]> timeline = new LinkedList<>();
+    private boolean active = false;
+    private boolean keyActive[] = new boolean[256];
+
+    public void KeyInput(){
+        if(active == true){
+            System.out.println("There is already an instance created");
+            return;
+        }
+
+        active = true;
+    }*/
+
+    public static boolean isKeyDown(int keyCode) {
+        return keyDown[keyCode];
     }
 
-    public void keyPressed(KeyEvent e) {
 
-        int key = e.getKeyCode();
-        System.out.println(key);
-
-
-        for(int i = 0; i<handler.object.size(); i++) {
-            GameObject tempObject = handler.object.get(i);
-            if(tempObject.getId() == ID.Player) {
-
-                if (key == KeyEvent.VK_LEFT) {
-                    tempObject.setX(tempObject.getX() - 2);
-                }
-
-                if (key == KeyEvent.VK_RIGHT) {
-                    tempObject.setX(tempObject.getX() + 2);
-                }
-
-                if (key == KeyEvent.VK_UP) {
-                    tempObject.setY(tempObject.getY() - 2);
-                    ;
-                }
-
-                if (key == KeyEvent.VK_DOWN) {
-                    tempObject.setY(tempObject.getY() + 2);
-                }
+    public static boolean isKeyPressed(int keyCode) {
+        //keyDown[88] = true;
+            if (!keyDownConsumed[keyCode] && keyDown[keyCode]) {
+                keyDownConsumed[keyCode] = true;
+                System.out.println(keyCode);
+                return true;
             }
-        }
+        return false;
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        System.out.println(e.getKeyCode());
+        keyDown[e.getKeyCode()] = true;
+        //timeline.add(keyDown);
+    }
+
+    @Override
     public void keyReleased(KeyEvent e) {
-
-        int key = e.getKeyCode();
-        /*
-        if (key == KeyEvent.VK_LEFT) {
-            velX = 0;
-        }
-
-        if (key == KeyEvent.VK_RIGHT) {
-            velX = 0;
-        }
-
-        if (key == KeyEvent.VK_UP) {
-            velY = 0;
-        }
-
-        if (key == KeyEvent.VK_DOWN) {
-            velY = 0;
-        }*/
+        keyDown[e.getKeyCode()] = false;
+        keyDownConsumed[e.getKeyCode()] = false;
     }
 }

@@ -22,14 +22,16 @@ public class Game extends Canvas implements Runnable
 
     public Game(){
         handler = new Handler();
-        this.addKeyListener(new KeyInput(handler));
+        this.addKeyListener(new KeyInput());
 
         new Display(WIDTH, HEIGHT, "Jumpman Plumber", this);
 
-        handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player));
+        handler.addObject(new Player(WIDTH/2-32, HEIGHT-70, ID.Player));
+        handler.addObject(new Goomba(WIDTH-32, HEIGHT-70, ID.Goomba));
     }
 
     public void run(){
+        this.requestFocus();
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;

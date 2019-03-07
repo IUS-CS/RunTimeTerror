@@ -2,7 +2,7 @@ package RunTimeTerror.Entities;
 
 import java.awt.*;
 
-public abstract class GameObject {
+public abstract class GameObject implements object {
 
     protected int x, y;
     protected ID id;
