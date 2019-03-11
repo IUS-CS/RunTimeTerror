@@ -23,13 +23,27 @@ public class Collision {
             if(tempObject!=object) {
                 tempX = tempObject.getX();
                 tempY = tempObject.getY();
-                if (tempX <= posX + object.width && tempX + tempObject.width >= posX && tempY + tempObject.height >= posY && tempY < posY+object.height) {
+                if (tempX <= posX + object.width) {
+                    if(tempX + tempObject.width >= posX){
+                        if(tempY + tempObject.height >= posY){
+                            if(tempY <= posY+object.height){
+                                //System.out.println("colliding");
+                                return true;
+                            }
+                        }
+                    }
                     //System.out.println("colliding");
-                    return true;
-                } else if (tempX >= posX + object.width && tempX + tempObject.width <= posX && tempY <= posY + object.height) {
-                    collidingFromTop = true;
-                    //System.out.println("colliding");
-                    return true;
+                    //return true;
+                }
+                if (tempX <= posX + object.width){
+                    if(tempX + tempObject.width >= posX ){
+                        if(tempY >= posY + object.height && tempY-6<=posY + object.height){
+                            collidingFromTop = true;
+                            //System.out.println("colliding");
+                            return true;
+
+                        }
+                    }
                 }
             }
 
