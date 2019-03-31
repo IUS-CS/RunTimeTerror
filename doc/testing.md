@@ -2,6 +2,7 @@
 Within our project, we developed many unit and integration tests using JUnit from the software IntelliJ. Even though unit tests are more difficult to create in game programming, we find that they are necessary to ensure that our game objects and entities are functioning as we intended them to. In addition, it is important for us to use integration testing to expose faults in the interaction between integrated units. 
 
 
+
 Overall, our tests are created to show both users and future programmers that our project is well designed and has proper functionality. In regards to non-functional requirements, we were able to test these features by using performance testing, compliance testing, usability testing, and scalability testing. The several types of testing we incorporated in our project allow us the confidence to say that our project will perform as we intended each time it is ran. 
 
 <h1> Unit Testing </h2>
