@@ -5,7 +5,7 @@ Within our project, we developed many unit and integration tests using JUnit fro
 
 Overall, our tests are created to show both users and future programmers that our project is well designed and has proper functionality. In regards to non-functional requirements, we were able to test these features by using performance testing, compliance testing, usability testing, and scalability testing. The several types of testing we incorporated in our project allow us the confidence to say that our project will perform as we intended each time it is ran. 
 
-<h1> Unit Testing </h2>
+<h2> Unit Testing </h2>
 First, we created unit tests for each of our methods. We tested each method with two or more unit tests to ensure that our methods are performing properly each time they are ran. It is also important to note that we created unit tests for each of our controller methods to verify their functionality as well. Each of our tests are very descriptive in nature so that the names of the testing methods are easily identified. This makes it easy for future programmers to view our work and run our tests without any question as to what each method is testing. 
 
 <h1> Integration Testing </h1>
