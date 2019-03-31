@@ -8,8 +8,8 @@ Overall, our tests are created to show both users and future programmers that ou
 <h2> Unit Testing </h2>
 First, we created unit tests for each of our methods. We tested each method with two or more unit tests to ensure that our methods are performing properly each time they are ran. It is also important to note that we created unit tests for each of our controller methods to verify their functionality as well. Each of our tests are very descriptive in nature so that the names of the testing methods are easily identified. This makes it easy for future programmers to view our work and run our tests without any question as to what each method is testing. 
 
-<h1> Integration Testing </h1>
+<h2> Integration Testing </h2>
 After creating unit tests for each of our methods, we began integration testing. Integration testing is important for our program because there are many methods and objects that must work together to achieve our desired outcome. 
 
-<h1> Non-functional Requirements Testing </h1>
+<h2> Non-functional Requirements Testing </h2>
 Our non-functional requirements were mainly tested using performance testing, compliance testing, usability testing, and scalability testing. These tests were done by exhausting several trial runs. In addition, we also used the end-to-end testing technique to ensure that our project was running properly. The end-to-end testing technique is used to test whether the flow of an application right from start to finish is behaving as expected.
