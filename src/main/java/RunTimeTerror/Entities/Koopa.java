@@ -4,10 +4,12 @@ import RunTimeTerror.Game;
 
 import java.awt.*;
 
-public class Goomba extends GameObject {
 
-    public Goomba(int x, int y, int width, int height, ID id){
-        super(x,y,width,height,id);
+
+public class Koopa extends GameObject {
+
+    public Koopa(int x, int y, ID id){
+        super(x,y,id);
 
         velX = -2;
         velY = 0;
@@ -22,7 +24,7 @@ public class Goomba extends GameObject {
     }
 
     public void render(Graphics g){
-        g.setColor(Color.red);
-        g.fillRect(x,y,width,height);
+        g.setColor(Color.blue);
+        g.fillRect(x,y,100,16);
     }
 }

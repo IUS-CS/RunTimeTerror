@@ -1,25 +1,13 @@
-package RunTimeTerror.Entities;
+package RunTimeTerror.Test;
 
-import java.awt.*;
+import RunTimeTerror.Entities.ID;
+import RunTimeTerror.Entities.object;
 
-public abstract class GameObject implements object {
+public class TestObject implements object {
 
     protected int x, y;
     protected ID id;
     protected int velX, velY;
-    protected int width, height;
-    protected boolean alive;
-
-    public GameObject(int x, int y, int width, int height, ID id){
-        this.x = x;
-        this.y = y;
-        this.id = id;
-        this.width = width;
-        this.height = height;
-    }
-
-    public abstract void tick();
-    public abstract void render(Graphics g);
 
     public void setX(int x){
         this.x = x;
@@ -59,6 +47,4 @@ public abstract class GameObject implements object {
     public int getVelY(){
         return velY;
     }
-
-
 }

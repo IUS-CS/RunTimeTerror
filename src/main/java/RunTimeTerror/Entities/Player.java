@@ -15,14 +15,15 @@ public class Player extends GameObject{
     public boolean jumping;
     public int jumpingCount = 0;
     public int MAX_JUMPING_COUNT = 15;
-    public boolean pressingRight;
-    public boolean pressingLeft;
+    public boolean pressingRight, pressingLeft;
+    private boolean down;
+    private int i;
 
 
-    public Player(int x, int y, ID id){
-        super(x, y, id);
+    public Player(int x, int y, int width, int height, ID id){
+        super(x,y,width,height,id);
         velY = 1;
-
+        alive = true;
 
     }
 
@@ -38,15 +39,23 @@ public class Player extends GameObject{
 
     @Override
     public void render(Graphics g) {
-        g.setColor(Color.white);
-        g.fillRect(x,y,24,32);
 
-    }
+        if(!alive){
+                    g.setColor(Color.yellow);
+                    g.fillRect(x, y, 24, 32);
+        }//if character was hit
+        else{
+            g.setColor(Color.white);
+            g.fillRect(x,y,24,32);
+        }
+
+    }//render
 
     public void updateMovement(){
         updateJump();
         UpdateHorizontal();
         checkImpactwhileJumping();
+        checkCollision();
     }
 
     public void UpdateHorizontal(){
@@ -121,6 +130,15 @@ public class Player extends GameObject{
         }
         if(iscollidingWithFloor()){
             velY = 0;
+        }
+    }
+
+    public void checkCollision(){
+        if(Collision.isColliding(this)){
+            alive = false;
+        }
+        else{
+            alive = true;
         }
     }
 

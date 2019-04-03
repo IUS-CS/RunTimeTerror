@@ -33,7 +33,7 @@ public class KeyInput implements KeyListener {
         //keyDown[88] = true;
             if (!keyDownConsumed[keyCode] && keyDown[keyCode]) {
                 keyDownConsumed[keyCode] = true;
-                System.out.println(keyCode);
+                //System.out.println(keyCode);
                 return true;
             }
         return false;
@@ -45,7 +45,7 @@ public class KeyInput implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println(e.getKeyCode());
+        //System.out.println(e.getKeyCode());
         keyDown[e.getKeyCode()] = true;
         //timeline.add(keyDown);
     }

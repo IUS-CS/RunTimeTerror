@@ -18,7 +18,7 @@ public class Game extends Canvas implements Runnable
     public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
     private Thread thread;
     private boolean running = false;
-    private Handler handler;
+    public static Handler handler;
 
     public Game(){
         handler = new Handler();
@@ -26,8 +26,9 @@ public class Game extends Canvas implements Runnable
 
         new Display(WIDTH, HEIGHT, "Jumpman Plumber", this);
 
-        handler.addObject(new Player(WIDTH/2-32, HEIGHT-70, ID.Player));
-        handler.addObject(new Goomba(WIDTH-32, HEIGHT-70, ID.Goomba));
+        handler.addObject(new Player(WIDTH/2-32, HEIGHT-70, 24, 32, ID.Player));
+        handler.addObject(new Goomba(WIDTH-32, HEIGHT-88, 16, 19, ID.Goomba));
+         handler.addObject(new Koopa(WIDTH/40, HEIGHT-70, ID.Koopa)); //Add the collision numbers if needed
     }
 
     public void run(){
