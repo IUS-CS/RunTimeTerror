@@ -34,13 +34,13 @@ public class Game extends Canvas implements Runnable
         handler.addObject(new Koopa(WIDTH/40, 0, 16, 19, ID.Koopa));//Add the collision numbers if needed
         floors.addObject(new Floor(0, HEIGHT-40, 640, 10, ID.Floor));
         floors.addObject(new Floor(0, HEIGHT-100, 160, 30, ID.Floor));
-        /*floors.addObject(new Floor(WIDTH-160, HEIGHT-150, 160, 30, ID.Floor));
+        floors.addObject(new Floor(WIDTH-160, HEIGHT-150, 160, 30, ID.Floor));
         floors.addObject(new Floor(160, HEIGHT-200, 275, 30, ID.Floor));
         floors.addObject(new Floor(WIDTH-160, HEIGHT-250, 160, 30, ID.Floor));
         floors.addObject(new Floor(0, HEIGHT-300, 160, 30, ID.Floor));
         floors.addObject(new Floor(160, HEIGHT-400, 275, 30, ID.Floor));
         floors.addObject(new Floor(WIDTH-160, HEIGHT-350, 160, 30, ID.Floor));
-        floors.addObject(new Floor(0, HEIGHT-450, 160, 30, ID.Floor));*/
+        floors.addObject(new Floor(0, HEIGHT-450, 160, 30, ID.Floor));
     }
 
     public void run(){
