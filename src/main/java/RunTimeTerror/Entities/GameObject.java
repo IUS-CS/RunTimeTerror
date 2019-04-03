@@ -39,6 +39,10 @@ public abstract class GameObject implements object {
         return y;
     }//end gety
 
+    public int getWidth(){return width;}//end getwidth
+
+    public int getHeight(){return height;}//end getheight
+
     public void setId(ID id){
         this.id = id;
     }//end setID
