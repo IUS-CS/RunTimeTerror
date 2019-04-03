@@ -14,7 +14,7 @@ public class GoombaTest {
 
     @Before
     public void setUp() throws Exception {
-        tester = new Goomba(-2, 0, ID.Goomba) {
+        tester = new Goomba(-2, 0,10,10, ID.Goomba) {
             @Override
             public void tick() {
             }
