@@ -25,6 +25,7 @@ public class Koopa extends GameObject {
 
     public void render(Graphics g){
         g.setColor(Color.blue);
-        g.fillRect(x,y,100,16);
-    }
-}
+
+       g.fillRect(x,y,30,16);
+    }//end render
+}//end Koopa

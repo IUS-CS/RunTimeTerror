@@ -8,20 +8,19 @@ import java.awt.*;
 
 import static org.junit.Assert.*;
 
-public class GameObjectTest {
+public class KoopaTest {
     GameObject tester;
+
 
     @Before
     public void setUp() throws Exception {
-        tester = new GameObject(10,10,10,10,ID.Player) {
+        tester = new Koopa(-2, 0, ID.Goomba) {
             @Override
             public void tick() {
-
             }
 
             @Override
             public void render(Graphics g) {
-
             }
         };
     }
@@ -46,7 +45,7 @@ public class GameObjectTest {
     public void getX() {
         int results = tester.getX();
         System.out.println("Getting X for object");
-        assertEquals(0, results);
+        assertEquals(-2, results);
     }
 
     @Test
@@ -67,9 +66,10 @@ public class GameObjectTest {
 
     @Test
     public void getId() {
-        ID temp = ID.Player;
+        ID temp = ID.Enemy;
+        tester.setId(temp);
         ID results = tester.getId();
-        System.out.println("Getting the object ID");
+        System.out.println("Setting the object ID");
         assertEquals(temp, results);
     }
 
@@ -79,14 +79,13 @@ public class GameObjectTest {
         int results = tester.getVelX();
         System.out.println("setting Velocity X of object");
         assertEquals(5, results);
-
     }
 
     @Test
     public void getVelX() {
         int results = tester.getVelX();
         System.out.println("getting Velocity X of object");
-        assertEquals(0, results);
+        assertEquals(-2, results);
     }
 
     @Test
@@ -104,6 +103,10 @@ public class GameObjectTest {
         assertEquals(0, results);
     }
 
+    @Test
+    public void tick() {
+        System.out.println("Tick - End to End tested");
+    }
 
 
     @After
