@@ -7,6 +7,7 @@ import RunTimeTerror.Game;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.Iterator;
 
 
 public class Player extends GameObject{
@@ -18,6 +19,9 @@ public class Player extends GameObject{
     public boolean pressingRight, pressingLeft;
     private boolean down;
     private int i;
+    public Handler floor = Game.floors;
+
+    public int startx,endx,starty,endy;
 
 
     public Player(int x, int y, int width, int height, ID id){
@@ -42,11 +46,11 @@ public class Player extends GameObject{
 
         if(!alive){
                     g.setColor(Color.yellow);
-                    g.fillRect(x, y, 24, 32);
+                    g.fillRect(x, y, width, height);
         }//if character was hit
         else{
             g.setColor(Color.white);
-            g.fillRect(x,y,24,32);
+            g.fillRect(x,y,width,height);
         }
 
     }//render
@@ -81,13 +85,21 @@ public class Player extends GameObject{
     }
 
     public boolean iscollidingWithFloor(){
-        if(y>Game.HEIGHT - 70){
-            velY = 0;
-            // = Game.HEIGHT-70;
-            return true;
-        }
+        Iterator<GameObject> iter = floor.object.iterator();
+        while(iter.hasNext()) {
+            GameObject temp = iter.next();
+            startx = temp.getX();
+            endx = temp.getWidth();
+            starty = temp.getY();
+            endy = temp.getHeight();
+            if (y > starty - (height+0) && x > startx && x <= endx) {
+                velY = 0;
+                // = Game.HEIGHT-70;
+                return true;
+            }//end if
+        }//end while
         return false;
-    }
+    }//end iscollidingWithFloor
 
     public void updateJump(){
         boolean collidingWithFloor = iscollidingWithFloor();
