@@ -15,7 +15,7 @@ public class Floor extends GameObject{
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.GREEN);
+        g.setColor(Color.PINK);
         g.fillRect(x, y, width, height);
 
     }
