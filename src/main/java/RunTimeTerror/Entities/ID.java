@@ -5,5 +5,6 @@ public enum ID
     Player(),
     Koopa(),
     Goomba(),
-    Enemy();
+    Enemy(),
+    Floor();
 }
