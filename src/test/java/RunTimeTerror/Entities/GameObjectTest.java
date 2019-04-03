@@ -46,14 +46,14 @@ public class GameObjectTest {
     public void getX() {
         int results = tester.getX();
         System.out.println("Getting X for object");
-        assertEquals(0, results);
+        assertEquals(10, results);
     }
 
     @Test
     public void getY() {
         int results = tester.getY();
         System.out.println("Getting Y for object");
-        assertEquals(0, results);
+        assertEquals(10, results);
     }
 
     @Test

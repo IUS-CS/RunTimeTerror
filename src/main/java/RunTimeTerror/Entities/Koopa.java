@@ -8,8 +8,8 @@ import java.awt.*;
 
 public class Koopa extends GameObject {
 
-    public Koopa(int x, int y, ID id){
-        super(x,y,id);
+    public Koopa(int x, int y, int width, int height, ID id){
+        super(x,y,width, height, id);
 
         velX = -2;
         velY = 0;
@@ -26,6 +26,6 @@ public class Koopa extends GameObject {
     public void render(Graphics g){
         g.setColor(Color.blue);
 
-       g.fillRect(x,y,30,16);
+       g.fillRect(x,y,width,height);
     }//end render
 }//end Koopa

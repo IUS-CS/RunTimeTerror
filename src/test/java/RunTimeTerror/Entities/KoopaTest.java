@@ -14,7 +14,7 @@ public class KoopaTest {
 
     @Before
     public void setUp() throws Exception {
-        tester = new Koopa(-2, 0, ID.Goomba) {
+        tester = new Koopa(-2, 0, 10, 10, ID.Koopa) {
             @Override
             public void tick() {
             }

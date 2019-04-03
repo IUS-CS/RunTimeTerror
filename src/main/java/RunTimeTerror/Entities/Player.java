@@ -42,11 +42,11 @@ public class Player extends GameObject{
 
         if(!alive){
                     g.setColor(Color.yellow);
-                    g.fillRect(x, y, 24, 32);
+                    g.fillRect(x, y, width, height);
         }//if character was hit
         else{
             g.setColor(Color.white);
-            g.fillRect(x,y,24,32);
+            g.fillRect(x,y,width,height);
         }
 
     }//render

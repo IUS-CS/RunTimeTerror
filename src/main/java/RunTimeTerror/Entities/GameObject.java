@@ -7,15 +7,19 @@ public abstract class GameObject implements object {
     protected int x, y;
     protected ID id;
     protected int velX, velY;
+    protected int width, height;
+    protected boolean alive;
 
-    public GameObject(int x, int y, ID id){
+    public GameObject(int x, int y, int width, int height, ID id){
         this.x = x;
         this.y = y;
         this.id = id;
+        this.width = width;
+        this.height = height;
     }//end GameObject
 
-    public GameObject(int i, int i1, int i2, int i3, ID player) {
-    }
+    //public GameObject(int i, int i1, int i2, int i3, ID player) {
+    //}
 
     public abstract void tick();
     public abstract void render(Graphics g);
