@@ -56,10 +56,15 @@ public class Player extends GameObject{
     }//render
 
     public void updateMovement(){
-        updateJump();
-        UpdateHorizontal();
-        checkImpactwhileJumping();
-        checkCollision();
+        if(alive) {
+            updateJump();
+            UpdateHorizontal();
+            checkImpactwhileJumping();
+            checkCollision();
+        }
+        else if(!alive){
+            velY=5;
+        }
     }
 
     public void UpdateHorizontal(){
@@ -89,10 +94,10 @@ public class Player extends GameObject{
         while(iter.hasNext()) {
             GameObject temp = iter.next();
             startx = temp.getX();
-            endx = temp.getWidth();
+            endx = temp.getWidth()+startx;
             starty = temp.getY();
-            endy = temp.getHeight();
-            if (y > starty - (height+0) && x > startx && x <= endx) {
+            endy = temp.getHeight()+starty;
+            if (y > starty - (height+0) && x+width > startx && x <= endx && y<endy){
                 velY = 0;
                 // = Game.HEIGHT-70;
                 return true;
@@ -146,11 +151,8 @@ public class Player extends GameObject{
     }
 
     public void checkCollision(){
-        if(Collision.isColliding(this)){
+        if(Collision.isColliding(this)) {
             alive = false;
-        }
-        else{
-            alive = true;
         }
     }
 
