@@ -1,17 +1,14 @@
-package RunTimeTerror.Entities;
+package RunTimeTerror.Test;
 
-
-
-
-import RunTimeTerror.Game;
+import RunTimeTerror.Entities.Collision;
+import RunTimeTerror.Entities.GameObject;
+import RunTimeTerror.Entities.ID;
+import RunTimeTerror.Entities.KeyInput;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.Iterator;
 
-
-public class Player extends GameObject{
-
+/*public class TestPlayer extends GameObject {
 
     public boolean jumping;
     public int jumpingCount = 0;
@@ -45,8 +42,8 @@ public class Player extends GameObject{
     public void render(Graphics g) {
 
         if(!alive){
-                    g.setColor(Color.yellow);
-                    g.fillRect(x, y, width, height);
+            g.setColor(Color.yellow);
+            g.fillRect(x, y, width, height);
         }//if character was hit
         else{
             g.setColor(Color.white);
@@ -68,8 +65,8 @@ public class Player extends GameObject{
     }
 
     public void UpdateHorizontal(){
-        pressingLeft = KeyInput.isKeyDown(KeyEvent.VK_LEFT);
-        pressingRight = KeyInput.isKeyDown(KeyEvent.VK_RIGHT);
+        pressingLeft = KeyInput.isKeyDown(37);
+        pressingRight = KeyInput.isKeyDown(39);
         if(pressingLeft){
             moveLeft();
         }
@@ -142,5 +139,4 @@ public class Player extends GameObject{
             alive = false;
         }
     }
-
-}
+}*/

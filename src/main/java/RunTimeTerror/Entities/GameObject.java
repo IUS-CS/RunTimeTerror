@@ -65,6 +65,7 @@ public abstract class GameObject implements object {
     public int getVelY(){
         return velY;
     }//end getVelY
+    public boolean isAlive(){return alive;}
 
 
 }
