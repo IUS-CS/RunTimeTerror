@@ -8,7 +8,7 @@ public abstract class GameObject implements object {
     protected ID id;
     protected int velX, velY;
     protected int width, height;
-    protected boolean alive;
+    public boolean alive;
 
     public GameObject(int x, int y, int width, int height, ID id){
         this.x = x;
