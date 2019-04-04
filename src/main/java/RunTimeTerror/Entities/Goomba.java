@@ -46,21 +46,7 @@ public class Goomba extends GameObject {
     }
 
     public boolean iscollidingWithFloor(){
-        Iterator<GameObject> iter = floor.object.iterator();
-        while(iter.hasNext()) {
-            GameObject temp = iter.next();
-            startx = temp.getX();
-            endx = temp.getWidth()+startx;
-            starty = temp.getY();
-            endy = temp.getHeight()+starty;
-            if (y > starty - (height+0) && x+width > startx && x <= endx && y<endy) {
-                velY = 0;
-                //System.out.println("X:"+x+", Y:"+y+", Height:"+height+", Width:"+width+", Startx:"+startx+", StartY:"+starty+", Endx:"+endx);
-                // = Game.HEIGHT-70;
-                return true;
-            }//end if
-        }//end while
-        return false;
+        return Collision.isOnFloor(this);
     }//end iscollidingWithFloor
 
     public void checkCollision(){

@@ -1,41 +1,31 @@
-package RunTimeTerror.Entities;
+package RunTimeTerror.Test;
 
-
-
-
-import RunTimeTerror.Game;
+import RunTimeTerror.Entities.Collision;
+import RunTimeTerror.Entities.GameObject;
+import RunTimeTerror.Entities.ID;
+import RunTimeTerror.Entities.KeyInput;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.Iterator;
 
-
-public class Player extends GameObject{
-
+public class TestPlayer extends GameObject{
 
     public boolean jumping;
     public int jumpingCount = 0;
     public int MAX_JUMPING_COUNT = 15;
     public boolean pressingRight, pressingLeft;
-    private boolean collidingWithFloor;
+    public boolean collidingWithFloor, keyConsumed;
+    public int key;
     private int i;
 
 
-
-
-
-    public Player(int x, int y, int width, int height, ID id){
+    public TestPlayer(int x, int y, int width, int height, ID id){
         super(x,y,width,height,id);
-        velY = 1;
-        alive = true;
 
     }
 
     @Override
     public void tick(){
-
-        x += velX;
-        y += velY;
         collidingWithFloor = iscollidingWithFloor();
         updateMovement();
 
@@ -43,15 +33,6 @@ public class Player extends GameObject{
 
     @Override
     public void render(Graphics g) {
-
-        if(!alive){
-                    g.setColor(Color.yellow);
-                    g.fillRect(x, y, width, height);
-        }//if character was hit
-        else{
-            g.setColor(Color.white);
-            g.fillRect(x,y,width,height);
-        }
 
     }//render
 
@@ -68,8 +49,8 @@ public class Player extends GameObject{
     }
 
     public void UpdateHorizontal(){
-        pressingLeft = KeyInput.isKeyDown(KeyEvent.VK_LEFT);
-        pressingRight = KeyInput.isKeyDown(KeyEvent.VK_RIGHT);
+        pressingLeft = KeyInput.isKeyDown(37);
+        pressingRight = KeyInput.isKeyDown(39);
         if(pressingLeft){
             moveLeft();
         }
@@ -99,7 +80,7 @@ public class Player extends GameObject{
             //jumping = true;
             return;
         }
-        else if (!jumping && KeyInput.isKeyPressed(KeyEvent.VK_X)) {
+        else if (!jumping && key==88) {
             y += -5;
             jumping = true;
             jumpingCount = 0;
@@ -107,15 +88,14 @@ public class Player extends GameObject{
         }
         else if (collidingWithFloor) {
             jumping = false;
-            if (KeyInput.isKeyDown(KeyEvent.VK_X)) {
-                KeyInput.keyDownConsumed[KeyEvent.VK_X] = true;
+            if (key==88) {
+                keyConsumed = true;
             }
         }
         else if (y<=32) {
             jumpingCount = MAX_JUMPING_COUNT;
         }
-        else if (jumping && KeyInput.isKeyDown(KeyEvent.VK_X)
-                && jumpingCount < MAX_JUMPING_COUNT) {
+        else if (jumping && key==88 && jumpingCount < MAX_JUMPING_COUNT) {
 
             velY = -5;
             jumpingCount++;
@@ -127,7 +107,6 @@ public class Player extends GameObject{
     }//updateJumping
 
     public void checkImpactwhileJumping(){
-        boolean collied = false;
         if(jumpingCount == MAX_JUMPING_COUNT){
             velY = 2;
         }
@@ -141,5 +120,4 @@ public class Player extends GameObject{
             alive = false;
         }
     }
-
 }
