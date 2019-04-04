@@ -8,47 +8,31 @@ import RunTimeTerror.Entities.KeyInput;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-/*public class TestPlayer extends GameObject {
+public class TestPlayer extends GameObject{
 
     public boolean jumping;
     public int jumpingCount = 0;
     public int MAX_JUMPING_COUNT = 15;
     public boolean pressingRight, pressingLeft;
-    private boolean down;
+    public boolean collidingWithFloor, keyConsumed;
+    public int key;
     private int i;
 
 
-
-
-
-    public Player(int x, int y, int width, int height, ID id){
+    public TestPlayer(int x, int y, int width, int height, ID id){
         super(x,y,width,height,id);
-        velY = 1;
-        alive = true;
 
     }
 
     @Override
     public void tick(){
-
-        x += velX;
-        y += velY;
-
+        collidingWithFloor = iscollidingWithFloor();
         updateMovement();
 
     }
 
     @Override
     public void render(Graphics g) {
-
-        if(!alive){
-            g.setColor(Color.yellow);
-            g.fillRect(x, y, width, height);
-        }//if character was hit
-        else{
-            g.setColor(Color.white);
-            g.fillRect(x,y,width,height);
-        }
 
     }//render
 
@@ -91,13 +75,12 @@ import java.awt.event.KeyEvent;
     }//end iscollidingWithFloor
 
     public void updateJump(){
-        boolean collidingWithFloor = iscollidingWithFloor();
         //System.out.println(collidingWithFloor);
         if (!jumping && !collidingWithFloor) {
             //jumping = true;
             return;
         }
-        else if (!jumping && KeyInput.isKeyPressed(KeyEvent.VK_X)) {
+        else if (!jumping && key==88) {
             y += -5;
             jumping = true;
             jumpingCount = 0;
@@ -105,15 +88,14 @@ import java.awt.event.KeyEvent;
         }
         else if (collidingWithFloor) {
             jumping = false;
-            if (KeyInput.isKeyDown(KeyEvent.VK_X)) {
-                KeyInput.keyDownConsumed[KeyEvent.VK_X] = true;
+            if (key==88) {
+                keyConsumed = true;
             }
         }
         else if (y<=32) {
             jumpingCount = MAX_JUMPING_COUNT;
         }
-        else if (jumping && KeyInput.isKeyDown(KeyEvent.VK_X)
-                && jumpingCount < MAX_JUMPING_COUNT) {
+        else if (jumping && key==88 && jumpingCount < MAX_JUMPING_COUNT) {
 
             velY = -5;
             jumpingCount++;
@@ -125,7 +107,6 @@ import java.awt.event.KeyEvent;
     }//updateJumping
 
     public void checkImpactwhileJumping(){
-        boolean collied = false;
         if(jumpingCount == MAX_JUMPING_COUNT){
             velY = 2;
         }
@@ -139,4 +120,4 @@ import java.awt.event.KeyEvent;
             alive = false;
         }
     }
-}*/
+}

@@ -17,7 +17,7 @@ public class Player extends GameObject{
     public int jumpingCount = 0;
     public int MAX_JUMPING_COUNT = 15;
     public boolean pressingRight, pressingLeft;
-    private boolean down;
+    private boolean collidingWithFloor;
     private int i;
 
 
@@ -36,7 +36,7 @@ public class Player extends GameObject{
 
         x += velX;
         y += velY;
-
+        collidingWithFloor = iscollidingWithFloor();
         updateMovement();
 
     }
@@ -94,7 +94,6 @@ public class Player extends GameObject{
     }//end iscollidingWithFloor
 
     public void updateJump(){
-        boolean collidingWithFloor = iscollidingWithFloor();
         //System.out.println(collidingWithFloor);
         if (!jumping && !collidingWithFloor) {
             //jumping = true;
