@@ -2,6 +2,7 @@ package RunTimeTerror.Entities;
 
 import RunTimeTerror.Test.TestFloor;
 import RunTimeTerror.Test.TestPlayer;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,6 +31,13 @@ public class PlayerTest {
         enemy.setVelX(0);
         //Collision.floor = floor;
         //Collision.handle = objects;
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        tester = null;
+        bottom = null;
+        enemy = null;
     }
 
     @Test
