@@ -1,21 +1,23 @@
 package RunTimeTerror.Entities;
 
 
+import RunTimeTerror.Game;
+
 import java.awt.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Handler {
 
-    LinkedList<GameObject> object = new LinkedList<>();
+    public LinkedList<GameObject> object = new LinkedList<>();
 
     public void tick(){
         Iterator<GameObject> iter = object.iterator();
         while(iter.hasNext()){
            GameObject tempObject = iter.next();
-
            tempObject.tick();
         }//for loop
+        isDead();
     }//tick
 
     public void render(Graphics g){
@@ -34,6 +36,17 @@ public class Handler {
 
     public void removeObject(GameObject object){
         this.object.remove(object);
+    }
+
+    public void isDead(){
+        Iterator<GameObject> iter = object.iterator();
+        while(iter.hasNext()) {
+            GameObject tempObject = iter.next();
+            if (!tempObject.isAlive() && tempObject.getY() > Game.HEIGHT) {
+                removeObject(tempObject);
+                return;
+            }
+        }
     }
 
 

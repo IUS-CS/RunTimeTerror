@@ -6,6 +6,7 @@ import RunTimeTerror.Entities.*;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -41,6 +42,10 @@ public class Game extends Canvas implements Runnable
         floors.addObject(new Floor(160, HEIGHT-400, 275, 30, ID.Floor));
         floors.addObject(new Floor(WIDTH-160, HEIGHT-350, 160, 30, ID.Floor));
         floors.addObject(new Floor(0, HEIGHT-450, 160, 30, ID.Floor));
+
+        Collision.floor=floors;
+        Collision.handle=handler;
+
     }
 
     public void run(){
