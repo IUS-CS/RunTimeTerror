@@ -22,7 +22,7 @@ public class Game extends Canvas implements Runnable
     public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
     private Thread thread;
     public boolean running = false;
-    public static int tickcount;
+    public static double tickcount;
     public static Handler handler;
     public static Handler floors;
 
@@ -34,8 +34,8 @@ public class Game extends Canvas implements Runnable
         new Display(WIDTH, HEIGHT, "Jumpman Plumber", this);
 
         handler.addObject(new Player(WIDTH/2-32, HEIGHT-80, 24, 32, ID.Player));
-        handler.addObject(new Goomba(WIDTH-32, 40, 16, 19, ID.Goomba));
-        handler.addObject(new Koopa(WIDTH/40, 40, 16, 19, ID.Koopa));//Add the collision numbers if needed
+        handler.addObject(new Goomba(WIDTH-32, 50, 16, 19, ID.Goomba));
+        handler.addObject(new Koopa(WIDTH/40, 50, 16, 19, ID.Koopa));//Add the collision numbers if needed
         floors.addObject(new Floor(0, HEIGHT-40, 640, 10, ID.Floor));
         floors.addObject(new Floor(0, HEIGHT-110, 160, 30, ID.Floor));
         floors.addObject(new Floor(WIDTH-160, HEIGHT-110, 160, 30, ID.Floor));
@@ -90,16 +90,16 @@ public class Game extends Canvas implements Runnable
     }
 
     private void randomenemy(){
-        tickcount++;
-        if(tickcount == 600) {
+        tickcount+=(Math.random());
+        if(tickcount >= 600) {
             double random = Math.random();
             if (random > 0.50) {
-                handler.addObject(new Goomba(WIDTH - 32, 40, 16, 19, ID.Goomba));
-                handler.addObject(new Goomba(WIDTH / 40, 40, 16, 19, ID.Goomba));
+                handler.addObject(new Goomba(WIDTH - 32, 50, 16, 19, ID.Goomba));
+                handler.addObject(new Goomba(WIDTH / 40, 50, 16, 19, ID.Goomba));
             }
             if (random < 0.50) {
-                handler.addObject(new Koopa(WIDTH - 32, 40, 16, 19, ID.Koopa));
-                handler.addObject(new Koopa(WIDTH / 40, 40, 16, 19, ID.Koopa));
+                handler.addObject(new Koopa(WIDTH - 32, 50, 16, 19, ID.Koopa));
+                handler.addObject(new Koopa(WIDTH / 40, 50, 16, 19, ID.Koopa));
             }
             tickcount = 0;
         }
@@ -120,11 +120,11 @@ public class Game extends Canvas implements Runnable
 
         handler.render(g);
         floors.render(g);
-        g.setColor(Color.blue);
-        g.fillRect(0,50,60,30);
-        g.fillRect(WIDTH-60,50,60,30);
-        g.fillRect(0,HEIGHT-70,60,30);
-        g.fillRect(WIDTH-60,HEIGHT-70,60,30);
+        //g.setColor(Color.blue);
+        //g.fillRect(0,50,60,30);
+        //g.fillRect(WIDTH-60,50,60,30);
+        //g.fillRect(0,HEIGHT-70,60,30);
+        //g.fillRect(WIDTH-60,HEIGHT-70,60,30);
         g.dispose();
         bs.show();
     }
