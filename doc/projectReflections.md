@@ -15,3 +15,4 @@ To close, this project taught me the importance of documentation, communication,
 
 <h2> Kaitlin's Reflection: </h2>
 
+Creating this project with my fellow partners was good experience for me using jframe and designing a game. First thing I learned from this was that managing my time when creating this game is the number 1 priority. Time is crucial when it comes to wanting to complete a project one step at a time. While working on the project, we created objects(enemies in the game) to move around in the game and trying to figure out how to collide with other enemies without the enemies killing eachother. I created one of the enemies to move around and collide. Testing this was a challenge for me but with my teamates code testing examples, I soon understood what they were doing. Now that I have experience with creating a game using jframe , I can use that knowledge of jframe to create projects for future reference 
