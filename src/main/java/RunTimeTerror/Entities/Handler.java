@@ -10,6 +10,7 @@ import java.util.LinkedList;
 public class Handler {
 
     public LinkedList<GameObject> object = new LinkedList<>();
+    public boolean running = true;
 
     public void tick(){
         Iterator<GameObject> iter = object.iterator();
@@ -43,6 +44,9 @@ public class Handler {
         while(iter.hasNext()) {
             GameObject tempObject = iter.next();
             if (!tempObject.isAlive() && tempObject.getY() > Game.HEIGHT) {
+                if(tempObject.id == ID.Player){
+                    running=false;
+                }
                 removeObject(tempObject);
                 return;
             }

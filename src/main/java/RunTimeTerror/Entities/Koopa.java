@@ -14,7 +14,7 @@ public class Koopa extends GameObject {
 
     public Koopa(int x, int y, int width, int height, ID id){
         super(x,y,width, height, id);
-
+        alive = true;
         velX = -1;
         velY = 2;
     }
@@ -34,9 +34,21 @@ public class Koopa extends GameObject {
     }//end render
 
     public void updateMovement(){
-        if(x<=0 || x >= Game.WIDTH-32) velX *= -1;
-        checkCollision();
-        falling();
+        if(alive) {
+            if (x <= 0 || x >= Game.WIDTH - 32) velX *= -1;
+            checkCollision();
+            pipe();
+            falling();
+        }
+        else{
+            setVelY(5);
+        }
+    }
+
+    public void pipe(){
+        if(getY() >= Game.HEIGHT-70 && (getX()>=Game.WIDTH-20 || getX()<=10)){
+            setY(60);
+        }
     }
 
     public void falling(){
@@ -53,11 +65,13 @@ public class Koopa extends GameObject {
     }//end iscollidingWithFloor
 
     public void checkCollision(){
-        if(Collision.isColliding(this)){
-            alive = false;
-        }
-        else{
+        if(Collision.isColliding(this)) {
             alive = true;
+            velX *= -1;
+            if(Collision.iscollidingTop()){
+                alive = false;
+                return;
+            }
         }
     }
 }//end Koopa
