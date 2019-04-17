@@ -1,6 +1,13 @@
 <h1> Project Reflections </h1>
 
 <h2> Will's Reflection: </h2>
+This project started out in a very interesting manner. First there was the issue of figuring out just what we were going to build. Then there was the issue of figuring out, who would be doing what in the project. We had initially divided this up with Amanda doing mostly documentation, Kaitlyn doing mostly unit testing, and myself doing mostly programming. This however changed right out the gate.
+
+The first sprint, we had changed the divide to give Kaitlyn some programming and we each do some unit testing. Looking back, this split was a bad call. We should have split it where all three had some of each, writing the documentation for the code we wrote and the document lead writing up group stuff. 
+
+Amanda and I had to step up and fill the lack of work that Kaitlyn had been putting forward. This was first noticed when she hadn’t done anything for sprint 1. We managed to complete the sprint still, but after we covered the stuff that wasn’t done. We then tried doing one on ones with her and see if maybe she was just having issues with git and could get her going after that. With each sprint we did, we tried to meet up as a group and discuss in a sort of standup what we will be doing in the next week. This led to Kaitlyn finding issues with every time we proposed to meet up. 
+
+By the end of the project, I don’t think Kaitlyn turned anything in on the project. This meant that really it was just Amanda and I making the program, we ended up dividing it up with her doing documentation and me writing the code. The overall experience led to learning how to work with Jframe and how to build code with testability in mind.
 
 
 
