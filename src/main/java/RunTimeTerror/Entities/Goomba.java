@@ -13,7 +13,7 @@ public class Goomba extends GameObject {
 
     public Goomba(int x, int y, int width, int height, ID id){
         super(x,y,width,height,id);
-
+        alive = true;
         velX = -1;
         velY = 2;
     }//end Goomba
@@ -31,9 +31,23 @@ public class Goomba extends GameObject {
     }//end render
 
     public void updateMovement(){
-        if(x<=0 || x >= Game.WIDTH-32) velX *= -1;
-        checkCollision();
-        falling();
+        if(alive) {
+            if (x <= 0 || x >= Game.WIDTH - 32) velX *= -1;
+            checkCollision();
+            pipe();
+            falling();
+        }
+        else if(!alive){
+            setVelY(5);
+        }
+    }
+
+    public void pipe(){
+        if(getY() >= Game.HEIGHT-70){
+            if(getX()>=Game.WIDTH-50 || getX()<=10) {
+                setY(60);
+            }
+        }
     }
 
     public void falling(){
@@ -50,11 +64,13 @@ public class Goomba extends GameObject {
     }//end iscollidingWithFloor
 
     public void checkCollision(){
-        if(Collision.isColliding(this)){
-            alive = false;
-        }
-        else{
+        if(Collision.isColliding(this)) {
             alive = true;
+            velX *= -1;
+            if(Collision.iscollidingTop()){
+                alive = false;
+                return;
+            }
         }
     }
 }//end Goomba

@@ -26,7 +26,7 @@ public class Player extends GameObject{
 
     public Player(int x, int y, int width, int height, ID id){
         super(x,y,width,height,id);
-        velY = 1;
+        velY = 2;
         alive = true;
 
     }
@@ -79,6 +79,16 @@ public class Player extends GameObject{
         else{
             velX = 0;
         }
+        isOffScreen();
+    }
+
+    public void isOffScreen(){
+        if(x > Game.WIDTH){
+            setX(-5);
+        }
+        else if(x<-5){
+            setX(Game.WIDTH);
+        }
     }
 
     public void moveRight(){
@@ -107,6 +117,7 @@ public class Player extends GameObject{
         }
         else if (collidingWithFloor) {
             jumping = false;
+            velY = 2;
             if (KeyInput.isKeyDown(KeyEvent.VK_X)) {
                 KeyInput.keyDownConsumed[KeyEvent.VK_X] = true;
             }
@@ -138,7 +149,12 @@ public class Player extends GameObject{
 
     public void checkCollision(){
         if(Collision.isColliding(this)) {
-            alive = false;
+            if(Collision.iscollidingTop()){
+                alive = true;
+            }
+            else {
+                alive = false;
+            }
         }
     }
 

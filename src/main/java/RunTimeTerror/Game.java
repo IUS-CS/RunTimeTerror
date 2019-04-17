@@ -4,10 +4,12 @@ package RunTimeTerror;
 
 import RunTimeTerror.Entities.*;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Random;
 
 /**
  * Hello world!
@@ -19,7 +21,8 @@ public class Game extends Canvas implements Runnable
 
     public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
     private Thread thread;
-    private boolean running = false;
+    public boolean running = false;
+    public static double tickcount;
     public static Handler handler;
     public static Handler floors;
 
@@ -31,17 +34,17 @@ public class Game extends Canvas implements Runnable
         new Display(WIDTH, HEIGHT, "Jumpman Plumber", this);
 
         handler.addObject(new Player(WIDTH/2-32, HEIGHT-80, 24, 32, ID.Player));
-        handler.addObject(new Goomba(WIDTH-32, 0, 16, 19, ID.Goomba));
-        handler.addObject(new Koopa(WIDTH/40, 0, 16, 19, ID.Koopa));//Add the collision numbers if needed
+        handler.addObject(new Goomba(WIDTH-32, 50, 16, 19, ID.Goomba));
+        handler.addObject(new Koopa(WIDTH/40, 50, 16, 19, ID.Koopa));//Add the collision numbers if needed
         floors.addObject(new Floor(0, HEIGHT-40, 640, 10, ID.Floor));
-        floors.addObject(new Floor(0, HEIGHT-100, 160, 30, ID.Floor));
-        floors.addObject(new Floor(WIDTH-160, HEIGHT-150, 160, 30, ID.Floor));
-        floors.addObject(new Floor(160, HEIGHT-200, 275, 30, ID.Floor));
+        floors.addObject(new Floor(0, HEIGHT-110, 160, 30, ID.Floor));
+        floors.addObject(new Floor(WIDTH-160, HEIGHT-110, 160, 30, ID.Floor));
+        floors.addObject(new Floor(180, HEIGHT-175, 265, 30, ID.Floor));
         floors.addObject(new Floor(WIDTH-160, HEIGHT-250, 160, 30, ID.Floor));
-        floors.addObject(new Floor(0, HEIGHT-300, 160, 30, ID.Floor));
-        floors.addObject(new Floor(160, HEIGHT-400, 275, 30, ID.Floor));
-        floors.addObject(new Floor(WIDTH-160, HEIGHT-350, 160, 30, ID.Floor));
-        floors.addObject(new Floor(0, HEIGHT-450, 160, 30, ID.Floor));
+        floors.addObject(new Floor(0, HEIGHT-250, 160, 30, ID.Floor));
+        floors.addObject(new Floor(180, HEIGHT-330, 265, 30, ID.Floor));
+        floors.addObject(new Floor(WIDTH-160, HEIGHT-400, 160, 30, ID.Floor));
+        floors.addObject(new Floor(0, HEIGHT-400, 160, 30, ID.Floor));
 
         Collision.floor=floors;
         Collision.handle=handler;
@@ -61,6 +64,8 @@ public class Game extends Canvas implements Runnable
             delta += (now-lastTime)/ ns;
             lastTime = now;
             while(delta >= 1){
+                randomenemy();
+                setRunning();
                 tick();
                 delta--;
             }
@@ -84,6 +89,23 @@ public class Game extends Canvas implements Runnable
 
     }
 
+    private void randomenemy(){
+        tickcount+=(Math.random());
+        if(tickcount >= 600) {
+            double random = Math.random();
+            if (random > 0.50) {
+                handler.addObject(new Goomba(WIDTH - 32, 50, 16, 19, ID.Goomba));
+                handler.addObject(new Goomba(WIDTH / 40, 50, 16, 19, ID.Goomba));
+            }
+            if (random < 0.50) {
+                handler.addObject(new Koopa(WIDTH - 32, 50, 16, 19, ID.Koopa));
+                handler.addObject(new Koopa(WIDTH / 40, 50, 16, 19, ID.Koopa));
+            }
+            tickcount = 0;
+        }
+
+    }
+
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
         if(bs == null){
@@ -98,7 +120,11 @@ public class Game extends Canvas implements Runnable
 
         handler.render(g);
         floors.render(g);
-
+        //g.setColor(Color.blue);
+        //g.fillRect(0,50,60,30);
+        //g.fillRect(WIDTH-60,50,60,30);
+        //g.fillRect(0,HEIGHT-70,60,30);
+        //g.fillRect(WIDTH-60,HEIGHT-70,60,30);
         g.dispose();
         bs.show();
     }
@@ -116,6 +142,10 @@ public class Game extends Canvas implements Runnable
             e.printStackTrace();
         }
 
+    }
+
+    public void setRunning(){
+        running = handler.running;
     }
 
     public static void main( String[] args )
