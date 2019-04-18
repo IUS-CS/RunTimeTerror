@@ -41,4 +41,4 @@ The game is written in Java and has been unit tested using JUnit. When playing, 
 
 **UML Sequence Diagram**
 
-![UML Sequence Diagram](../images/UMLSequenceDiagram.png)
+![Game Screenshot](../images/game.png)
