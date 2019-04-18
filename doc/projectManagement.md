@@ -10,7 +10,7 @@ blah
 blah
 
 
-### Time Managment
+### Time Management
 
 blah
 
