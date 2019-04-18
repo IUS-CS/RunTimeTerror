@@ -1,4 +1,4 @@
-# How to Use
+# How to Play:
 **1st:** Click the green start button in IntelliJ to begin the game
 
 **2nd:** Move the white rectangle (the character) left and right using the left and right arrow keys on your keyboard
