@@ -39,5 +39,8 @@ The game is written in Java and has been unit tested using JUnit. When playing, 
 
 <h1> Game Play Preview: </h1>
 
+<h2>Notes:</h2>
+
+The four blue rectangles are considered "pipes" that the Koopa and Goomba enemies exit from and enter into. The green rectangles are the platforms that the character can jump onto to avoid enemies or to reach the top of the screen. The character (player) is shown as the white rectangle and the enemies are the other objects on the screen that are released from the pipes. 
 
 ![Game Screenshot](images/game.png)
