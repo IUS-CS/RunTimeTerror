@@ -1,10 +1,9 @@
 ﻿## Project Managment Documentation
 	
-### Requirements
 
 **1. Project Title**
 
-  1.1 Jumpman Plumber: Our game is named this in resemblance to the Super Mario game. Mario was a plumber and our character jumps through the game with the task of enemy avoidance.
+  **1.1 Jumpman Plumber:** Our game is named this in resemblance to the Super Mario game. Mario was a plumber and our character jumps through the game with the task of enemy avoidance.
 
 
 **2. Project Overview**
