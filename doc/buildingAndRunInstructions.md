@@ -1,4 +1,4 @@
-<h2>The process on how to build and run this project will be done IntelliJ </h2>
+<h1>The process of how to build and run this project will be done IntelliJ: </h1>
 
 •	The first step in building our project is cloning the repository from our master branch
 
