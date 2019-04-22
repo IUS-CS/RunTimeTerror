@@ -17,21 +17,12 @@
 
 **2.4** Look and Feel: Our game will resemble an "old-school" feel as we have a black background and green platforms. In addition, the main character and enemies are represented using tradional shapes to follow the old-school trend.  
 
-### Time Management
 
-blah
+**3. Project Management Essentials**
 
+**3.1** Time Management: We were given four months to complete our project. During the first month, we spent a majority of our time practing with the Git command line and learning the basics of Github. During the second month, we began our project by putting our ideas on paper and starting on the code. The third month is where we began testing what we had and making sure we developed both unit and integration testing. Finally, the fourth month is where we began adding our final touches and making sure we have a solid project to submit.
 
-### Cost Management
-
-blah
+**3.2** Communication Management: Due to this project being a group project, we needed a platform to communicate on. We decided as a group to use group text and meet after class as needed. We ended up meeting each day after class and performing an informal "stand-up". This was beneficial for the most part but at times, we had trouble with communication and work accountability. 
 
 
-### Communication Management
-
-blah
-
-
-### Quality Management
-
-blah
+**3.3** Quality Management: The quality of our project is good in the sense that it is broken up into many methods that are all very testable. From the start, our goal was to create a project that was testable, beneficial to our learning, and fun to mess around with. All of these things were all achieved. In addition, our project has many layers of documentation that we find will be very helpful to future viewers of our project.
